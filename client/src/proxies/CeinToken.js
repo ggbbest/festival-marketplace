@@ -1,16 +1,16 @@
 import Provider from './Provider';
-import FestToken from '../abi/contracts/FestToken.json';
+import CeinToken from '../abi/contracts/CeinToken.json';
 
 const provider = new Provider();
 
 class Token {
   constructor() {
     const web3 = provider.web3;
-    const deploymentKey = Object.keys(FestToken.networks)[0];
+    const deploymentKey = Object.keys(CeinToken.networks)[0];
 
     this.instance = new web3.eth.Contract(
-      FestToken.abi,
-      FestToken.networks[deploymentKey].address,
+      CeinToken.abi,
+      CeinToken.networks[deploymentKey].address,
     );
   }
 

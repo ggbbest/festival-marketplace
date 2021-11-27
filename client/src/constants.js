@@ -1,14 +1,14 @@
-export const festivalNFTABI = [
+export const c4eiNFTABI = [
   {
     "inputs": [
       {
         "internalType": "string",
-        "name": "festName",
+        "name": "ceinName",
         "type": "string"
       },
       {
         "internalType": "string",
-        "name": "FestSymbol",
+        "name": "CeinSymbol",
         "type": "string"
       },
       {
@@ -764,17 +764,17 @@ export const festivalNFTABI = [
   }
 ]
 
-export const festivalMarketplaceABI = [
+export const c4eiMarketplaceABI = [
   {
     "inputs": [
       {
-        "internalType": "contract FestToken",
+        "internalType": "contract CeinToken",
         "name": "token",
         "type": "address"
       },
       {
-        "internalType": "contract FestivalNFT",
-        "name": "festival",
+        "internalType": "contract C4eiNFT",
+        "name": "c4ei",
         "type": "address"
       }
     ],

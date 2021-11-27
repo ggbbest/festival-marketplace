@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-contract FestivalNFT is Context, AccessControl, ERC721 {
+contract C4eiNFT is Context, AccessControl, ERC721 {
     using Counters for Counters.Counter;
 
     Counters.Counter private _ticketIds;
@@ -29,12 +29,12 @@ contract FestivalNFT is Context, AccessControl, ERC721 {
     mapping(address => uint256[]) private purchasedTickets;
 
     constructor(
-        string memory festName,
-        string memory FestSymbol,
+        string memory ceinName,
+        string memory CeinSymbol,
         uint256 ticketPrice,
         uint256 totalSupply,
         address organiser
-    ) public ERC721(festName, FestSymbol) {
+    ) public ERC721(ceinName, CeinSymbol) {
         _setupRole(MINTER_ROLE, organiser);
 
         _ticketPrice = ticketPrice;

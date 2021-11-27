@@ -1,0 +1,84 @@
+dev@ubuntu:~/www/nft2.c4ei.net$ truffle migrate
+
+Compiling your contracts...
+===========================
+✔ Fetching solc version list from solc-bin. Attempt #1
+> Everything is up to date, there is nothing to compile.
+
+
+
+Starting migrations...
+======================
+> Network name:    'development'
+> Network id:      21004
+> Block gas limit: 8000000 (0x7a1200)
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   > transaction hash:    0x9a892de136e459dcfd98f67455219671e37e1d68e33d1445b85ec4ee2c2d99c4
+   > Blocks: 0            Seconds: 12
+   > contract address:    0x84245EA90614e1800e074BeA26FAe721797b9800
+   > block number:        221214
+   > block timestamp:     1637991218
+   > account:             0xAd70df6Bd78734721F42CD8cCACe42b25D83Aa65
+   > balance:             100
+   > gas used:            153706 (0x2586a)
+   > gas price:           1 gwei
+   > value sent:          0 ETH
+   > total cost:          0.000153706 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:         0.000153706 ETH
+
+
+2_c4ei_migration.js
+===================
+
+   Deploying 'CeinToken'
+   ---------------------
+   > transaction hash:    0x1caee4fd47a204b0aa881a65c550d82ebc97eff9613fede00c0584d4433c1494
+   > Blocks: 1            Seconds: 8
+   > contract address:    0x0baEE3029DEBFcF63aE172460ECDeCdF72FcC047
+   > block number:        221217
+   > block timestamp:     1637991267
+   > account:             0xAd70df6Bd78734721F42CD8cCACe42b25D83Aa65
+   > balance:             99.058196331267521536
+   > gas used:            722313 (0xb0589)
+   > gas price:           1 gwei
+   > value sent:          0 ETH
+   > total cost:          0.000722313 ETH
+
+
+   Deploying 'CeinTicketsFactory'
+   ------------------------------
+   > transaction hash:    0x5bc9c4eda807be832c6559c12d1ccc59baaa7488e94a2a5b2f75aabad0824033
+   > Blocks: 1            Seconds: 4
+   > contract address:    0xBdcD7A4eA5d7925cFC9749cE5A485b5ccb045f53
+   > block number:        221219
+   > block timestamp:     1637991277
+   > account:             0xAd70df6Bd78734721F42CD8cCACe42b25D83Aa65
+   > balance:             99.058196331267521536
+   > gas used:            3757674 (0x39566a)
+   > gas price:           1 gwei
+   > value sent:          0 ETH
+   > total cost:          0.003757674 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:         0.004479987 ETH
+
+
+Summary
+=======
+> Total deployments:   3
+> Final cost:          0.004633693 ETH
+

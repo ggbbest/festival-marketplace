@@ -1,18 +1,18 @@
 pragma solidity ^0.6.0;
 
-import "./FestivalNFT.sol";
-import "./FestToken.sol";
+import "./C4eiNFT.sol";
+import "./CeinToken.sol";
 
-contract FestivalMarketplace {
-    FestToken private _token;
-    FestivalNFT private _festival;
+contract C4eiMarketplace {
+    CeinToken private _token;
+    C4eiNFT private _c4ei;
 
     address private _organiser;
 
-    constructor(FestToken token, FestivalNFT festival) public {
+    constructor(CeinToken token, C4eiNFT c4ei) public {
         _token = token;
-        _festival = festival;
-        _organiser = _festival.getOrganiser();
+        _c4ei = c4ei;
+        _organiser = _c4ei.getOrganiser();
     }
 
     event Purchase(address indexed buyer, address seller, uint256 ticketId);
@@ -21,22 +21,22 @@ contract FestivalMarketplace {
     function purchaseTicket() public {
         address buyer = msg.sender;
 
-        _token.transferFrom(buyer, _organiser, _festival.getTicketPrice());
+        _token.transferFrom(buyer, _organiser, _c4ei.getTicketPrice());
 
-        _festival.transferTicket(buyer);
+        _c4ei.transferTicket(buyer);
     }
 
     // Purchase ticket from the secondary market hosted by organiser
     function secondaryPurchase(uint256 ticketId) public {
-        address seller = _festival.ownerOf(ticketId);
+        address seller = _c4ei.ownerOf(ticketId);
         address buyer = msg.sender;
-        uint256 sellingPrice = _festival.getSellingPrice(ticketId);
+        uint256 sellingPrice = _c4ei.getSellingPrice(ticketId);
         uint256 commision = (sellingPrice * 10) / 100;
 
         _token.transferFrom(buyer, seller, sellingPrice - commision);
         _token.transferFrom(buyer, _organiser, commision);
 
-        _festival.secondaryTransferTicket(buyer, ticketId);
+        _c4ei.secondaryTransferTicket(buyer, ticketId);
 
         emit Purchase(buyer, seller, ticketId);
     }
