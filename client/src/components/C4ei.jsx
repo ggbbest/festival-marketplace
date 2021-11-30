@@ -24,8 +24,12 @@ class C4ei extends Component {
   onCreateC4ei = async (e) => {
     try {
       e.preventDefault();
-
       const organiser = await web3.eth.getCoinbase();
+      // console.log(ceinToken._address +" : ceinToken._address");
+      // console.log(organiser +" : organiser");
+// 0x0baEE3029DEBFcF63aE172460ECDeCdF72FcC047 : ceinToken._address
+// 0x18d89869fdc527a8a49076e84ef9e82c92e0a790 : organiser
+      
       const { name, symbol, price, supply } = this.state;
       const { events: { Created: { returnValues: { ntfAddress, marketplaceAddress } } } } = await c4eiFactory.methods.createNewCein(
         ceinToken._address,
@@ -33,8 +37,8 @@ class C4ei extends Component {
         symbol,
         web3.utils.toWei(price, 'ether'),
         supply
-      ).send({ from: organiser, gas: 6700000 });
-
+      ).send({ from: organiser, gas: 8000000 });
+      // console.log(name +" : name/"+ symbol +" : symbol/"+ price +" : price/"+ suppply +" : suppply/");
       renderNotification('success', 'Success', `C4ei Created Successfully!`);
 
       const nftInstance = await C4eiNFT(ntfAddress);
@@ -44,7 +48,7 @@ class C4ei extends Component {
       let prevCount = 0
 
       if (supply < 30) {
-        const res = await nftInstance.methods.bulkMintTickets(supply, marketplaceAddress).send({ from: organiser, gas: 6700000 });
+        const res = await nftInstance.methods.bulkMintTickets(supply, marketplaceAddress).send({ from: organiser, gas: 8000000 });
       } else {
         for (let i = 0; i < batches; i++) {
           prevCount = curCount;
@@ -52,7 +56,7 @@ class C4ei extends Component {
           if (supply < curCount) {
             batchSupply = supply - prevCount;
           }
-          const res = await nftInstance.methods.bulkMintTickets(batchSupply, marketplaceAddress).send({ from: organiser, gas: 6700000 });
+          const res = await nftInstance.methods.bulkMintTickets(batchSupply, marketplaceAddress).send({ from: organiser, gas: 8000000 });
         }
       }
     } catch (err) {

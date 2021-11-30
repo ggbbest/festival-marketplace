@@ -9,7 +9,7 @@ module.exports = {
       network_id: "21004", // Match any network id
     },
   },
-  contracts_directory: "./src/contracts/",
+  contracts_directory: "./src/abis/contracts/",
   contracts_build_directory: "./src/abis/",
   compilers: {
     solc: {

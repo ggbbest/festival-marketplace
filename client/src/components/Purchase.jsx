@@ -54,8 +54,8 @@ class Purchase extends Component {
   onPurchaseTicket = async (marketplace, ticketPrice, initiator) => {
     try {
       const marketplaceInstance = await C4eiMarketplace(marketplace);
-      await ceinToken.methods.approve(marketplace, ticketPrice).send({ from: initiator, gas: 6700000 });
-      await marketplaceInstance.methods.purchaseTicket().send({ from: initiator, gas: 6700000 });
+      await ceinToken.methods.approve(marketplace, ticketPrice).send({ from: initiator, gas: 8000000 });
+      await marketplaceInstance.methods.purchaseTicket().send({ from: initiator, gas: 8000000 });
       await this.updateC4eis();
 
       renderNotification('success', 'Success', `Ticket for the C4ei purchased successfully!`);

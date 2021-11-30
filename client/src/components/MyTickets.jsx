@@ -33,7 +33,7 @@ class MyTickets extends Component {
       const initiator = await web3.eth.getCoinbase();
       const { ticket, price, marketplace } = this.state;
       const nftInstance = await C4eiNFT(this.state.cein);
-      await nftInstance.methods.setSaleDetails(ticket, web3.utils.toWei(price, 'ether'), marketplace).send({ from: initiator, gas: 6700000 });
+      await nftInstance.methods.setSaleDetails(ticket, web3.utils.toWei(price, 'ether'), marketplace).send({ from: initiator, gas: 8000000 });
 
       renderNotification('success', 'Success', `Ticket is listed for sale in secondary market!`);
     } catch (err) {

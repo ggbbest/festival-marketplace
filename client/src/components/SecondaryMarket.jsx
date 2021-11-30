@@ -68,8 +68,8 @@ class SecondaryMarket extends Component {
     try {
       const { marketplace } = this.state;
       const marketplaceInstance = await C4eiMarketplace(marketplace);
-      await ceinToken.methods.approve(marketplace, sellingPrice).send({ from: initiator, gas: 6700000 });
-      await marketplaceInstance.methods.secondaryPurchase(ticketId).send({ from: initiator, gas: 6700000 });
+      await ceinToken.methods.approve(marketplace, sellingPrice).send({ from: initiator, gas: 8000000 });
+      await marketplaceInstance.methods.secondaryPurchase(ticketId).send({ from: initiator, gas: 8000000 });
       await this.updateTickets()
 
       renderNotification('success', 'Success', 'Ticket purchased for the c4ei successfully!');
@@ -86,7 +86,12 @@ class SecondaryMarket extends Component {
       const activeCeins = await c4eiFactory.methods.getActiveCeins().call({ from: initiator });
       const ceinDetails = await c4eiFactory.methods.getCeinDetails(activeCeins[0]).call({ from: initiator });
       const renderData = await Promise.all(activeCeins.map(async (cein, i) => {
-        const ceinDetails = await c4eiFactory.methods.getCeinDetails(activeCeins[i]).call({ from: initiator });
+      const ceinDetails = await c4eiFactory.methods.getCeinDetails(activeCeins[i]).call({ from: initiator });
+      // console.log(initiator +":initiator ");
+      // console.log(activeCeins +":activeCeins ");
+      // console.log(ceinDetails +":ceinDetails ");
+      // console.log(renderData +":renderData ");
+      // console.log(ceinDetails +":ceinDetails ");
         return (
           <option key={cein} value={cein} >{ceinDetails[0]}</option>
         )

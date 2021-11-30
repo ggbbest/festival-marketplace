@@ -7,6 +7,10 @@ truffle-config.js
 
 truffle compile
 truffle migrate
+
+cd /home/dev/www/nft2.c4ei.net/client
+yarn start
+
 # C4ei Marketplace
 
 ### Overview 
